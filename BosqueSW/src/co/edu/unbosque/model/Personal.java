@@ -8,14 +8,15 @@ public class Personal implements Serializable {
 	 * 
 	 */
 		private static final long serialVersionUID = 1L;
-		private int id, telefono,anioing,salario;
+		private int telefono,anioing,salario;
 	    private String nombre, apellido, correo;
 		private Object sexo;
+		private TipoPersonal tipop;
 
-	    public Personal(int id, String nombre, String apellido, Object sexo, int telefono, String correo, int salario, 
-	    		int anioing) {
+	    public Personal( String nombre, String apellido, Object sexo, int telefono, String correo, int salario, 
+	    		int anioing,TipoPersonal tipo) {
 	        
-	    	this.id = id;
+	 
 	        this.nombre = nombre;
 	        this.apellido = apellido;
 	        this.sexo = sexo;
@@ -23,16 +24,11 @@ public class Personal implements Serializable {
 	        this.correo = correo;
 	   	    this.salario = salario;
 	   	    this.anioing = anioing;
+	   	    this.tipop =tipo;
 	   	   
 	    }
 
-		public int getId() {
-			return id;
-		}
 
-		public void setId(int id) {
-			this.id = id;
-		}
 
 		public int getTelefono() {
 			return telefono;
@@ -93,7 +89,6 @@ public class Personal implements Serializable {
 		
 		public String toString() {
 	        return "Personal{" +
-	                "id=" + id +
 	                ", nombre='" + nombre + '\'' +
 	                ", apellido'" + apellido + '\'' +
 	                ", sexo='" + sexo + '\'' +
