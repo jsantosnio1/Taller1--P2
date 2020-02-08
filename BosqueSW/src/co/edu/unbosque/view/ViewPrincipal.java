@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -23,7 +24,7 @@ public class ViewPrincipal extends JFrame implements ActionListener{
 	
 	private VentanaRegistro pr;
 	
-	private JButton btnRegistro;
+	private JButton btnRegistro,btnArchivo;
 	
 	private JPanel panelDatos,panelPrincipal;
 	
@@ -61,6 +62,16 @@ public class ViewPrincipal extends JFrame implements ActionListener{
 		btnRegistro.addActionListener(this);
 		panelDatos.add(btnRegistro);
 		
+		btnArchivo = new JButton();
+		btnArchivo.setText("Archivo");
+		btnArchivo.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
+		btnArchivo.setForeground(Color.BLACK);
+		btnArchivo.setBorder(new EmptyBorder(1, 1, 1, 1));
+		btnArchivo.setActionCommand("Archivo");
+		btnArchivo.addActionListener(this);
+		panelDatos.add(btnArchivo);
+		
+		
 
 	}
 	
@@ -74,17 +85,25 @@ public class ViewPrincipal extends JFrame implements ActionListener{
 			VentanaRegistro vr = new VentanaRegistro(this);
 			vr.setVisible(true);
 		}
-		if(command.equalsIgnoreCase("CERRAR")) {
-
+		if(command.equalsIgnoreCase("ARCHIVO")) {
+		
 		}
 	}
 	
 
-	public void imprimirMensaje(String pMensaje)
-	{
-		JOptionPane.showMessageDialog(this, pMensaje);
-	}
+//	public void registroPersona(int pId, String pNombre, String pApellido1, String pApellido2, Object pSexo, String pUsuario, String pContraseña, String pCorreo, Date pNacimiento, int pEdad, int pIngresos, String pDivorcio, float pEstatura) {
+		
+	//	if(pIngresos==0){
+		//	int ingresos=0;
+			//p.escribirArchivoUsuario(pId, pNombre, pApellido1, pApellido2, pSexo, pUsuario, pContraseña, pCorreo, pNacimiento, pEdad, ingresos, pDivorcio, 0, 0, 0, "activo", 0);
+		//}
+	//	else {
+		//	p.escribirArchivoUsuario(pId, pNombre, pApellido1, pApellido2, pSexo, pUsuario, pContraseña, pCorreo, pNacimiento, pEdad, pIngresos, pDivorcio, 0, 0, 0, "activo", pEstatura);
+	//	}
+//	}
 
-
+	public void enviarCorreo(String pCorreo) {
+	    controlador.enviarCorreo(pCorreo);
+    }
 
 }

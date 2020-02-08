@@ -11,10 +11,9 @@ public class Personal implements Serializable {
 		private int id, telefono,anioing,salario;
 	    private String nombre, apellido, correo;
 		private Object sexo;
-		private TipoPersonal tipop;
+		
 
-	    public Personal(int id, String nombre, String apellido, Object sexo, int telefono, String correo, int salario, 
-	    		int anioing,TipoPersonal tipo) {
+	    public Personal(int id, String nombre, String apellido, Object sexo, String correo, int dirrecion, int años) {
 	        
 	    	this.id =id;
 	        this.nombre = nombre;
@@ -24,7 +23,7 @@ public class Personal implements Serializable {
 	        this.correo = correo;
 	   	    this.salario = salario;
 	   	    this.anioing = anioing;
-	   	    this.tipop =tipo;
+	   
 	   	   
 	    }
 

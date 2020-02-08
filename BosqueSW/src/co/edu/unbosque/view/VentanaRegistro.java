@@ -31,13 +31,13 @@ public class VentanaRegistro extends JFrame implements ActionListener {
 	
 	private ViewPrincipal vp;
 	private JLabel lblId, lblNombre, lblApellido1, lblSexo, lblCorreo,lblIngresos,lblDireccion,lblPersonal,lblIngeniero
-	,lblJunior;
+	,lblJunior,lblSenior;
 	
-	private JTextField txtId, txtNombre, txtApellido1,txtCorreo,txtDireccion;
+	private JTextField txtId, txtNombre, txtApellido1,txtCorreo,txtDireccion,txtSexo,txtAños;
 	private JRadioButton rbtnSalario,rbtnComision,rbtnIngeniero,rbtnIngenieroS;
 	private JPanel panelDatos, panelBotones, panelRadioButton,panelRadioButton2;
 	private JButton btnRegistrar ,btnVolver;
-	private JComboBox<String> lists,listi,listj;
+	private JComboBox<String> lists,listi,listj,listse;
 	
 	
 	
@@ -170,6 +170,15 @@ public class VentanaRegistro extends JFrame implements ActionListener {
 		
 		String[] listjunior = {"SELECCIONAR", "Nivel 1", "Nivel 2", "Nivel 3", "Nivel 4", "Nivel 5"};
 		listj = new JComboBox<String>(listjunior);
+		
+		lblSenior = new JLabel();
+		lblSenior.setText("Numero de Ventas Ingeniero Senior: ");
+		lblSenior.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
+		lblSenior.setForeground(Color.BLACK);
+		
+		String[] listsenior = {"SELECCIONAR", "De 1 a 5 ventas", "De 6 a 10 ventas", "De 10 a 20 ventas", "Más de 21 ventas"};
+		listse = new JComboBox<String>(listsenior);
+
 
 		btnRegistrar = new JButton("Registrarse");
 		btnRegistrar.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
@@ -197,6 +206,7 @@ public class VentanaRegistro extends JFrame implements ActionListener {
 		panelDatos.add(lblPersonal);	panelDatos.add(panelRadioButton);
 		panelDatos.add(lblIngeniero);	panelDatos.add(panelRadioButton2);
 		panelDatos.add(lblJunior);	    panelDatos.add(listj);
+		panelDatos.add(lblSenior);	    panelDatos.add(listse);
 		getContentPane().setLayout(new BorderLayout());
 		getContentPane().add(panelDatos, BorderLayout.CENTER);
 		getContentPane().add(panelBotones, BorderLayout.SOUTH);
@@ -209,9 +219,13 @@ public class VentanaRegistro extends JFrame implements ActionListener {
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
 				super.mouseClicked(e);
+				lblIngeniero.setVisible(true);
 				rbtnIngeniero.setVisible(true);
 				rbtnIngenieroS.setVisible(true);
-				
+				lblJunior.setVisible(true);
+				listj.setVisible(true);
+				lblSenior.setVisible(true);
+				listse.setVisible(true);
 			}
 		});
 		
@@ -220,9 +234,13 @@ public class VentanaRegistro extends JFrame implements ActionListener {
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
 				super.mouseClicked(e);
+				lblIngeniero.setVisible(false);
 				rbtnIngeniero.setVisible(false);
 				rbtnIngenieroS.setVisible(false);
 				lblJunior.setVisible(false);
+				listj.setVisible(false);
+				lblSenior.setVisible(false);
+				listse.setVisible(false);
 			}
 		});
 		
@@ -233,6 +251,8 @@ public class VentanaRegistro extends JFrame implements ActionListener {
 				super.mouseClicked(e);
 				lblJunior.setVisible(true);
 				listj.setVisible(true);
+				lblSenior.setVisible(false);
+				listse.setVisible(false);
 			}
 		});
 		
@@ -243,6 +263,8 @@ public class VentanaRegistro extends JFrame implements ActionListener {
 				super.mouseClicked(e);
 				lblJunior.setVisible(false);
 				listj.setVisible(false);
+				lblSenior.setVisible(true);
+				listse.setVisible(true);
 				
 			}
 		});
@@ -254,7 +276,33 @@ public class VentanaRegistro extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String comando= e.getActionCommand();
 		if(comando.equals("REGISTRARSE")){
+			if (rbtnComision.isSelected() && !txtId.getText().isEmpty() && !txtNombre.getText().isEmpty() 
+					&& !txtApellido1.getText().isEmpty() && !txtCorreo.getText().isEmpty() && !txtDireccion.getText().isEmpty()
+					&& lists.getSelectedIndex()>=1 && listi.getSelectedIndex()>=1) {
+				
+				vp.enviarCorreo(txtCorreo.getText());
+				JOptionPane.showMessageDialog(null, "Registrado Exitosamente");
+			}
 			
+			else if (rbtnSalario.isSelected() && rbtnIngeniero.isSelected() && listj.getSelectedIndex()>=1 && !txtId.getText().isEmpty() && !txtNombre.getText().isEmpty() 
+					&& !txtApellido1.getText().isEmpty() && !txtCorreo.getText().isEmpty() && !txtDireccion.getText().isEmpty()
+					&& lists.getSelectedIndex()>=1 && listi.getSelectedIndex()>=1)
+			{
+				vp.enviarCorreo(txtCorreo.getText());
+				JOptionPane.showMessageDialog(null, "Registrado Exitosamente");
+			}
+			else if (rbtnSalario.isSelected() && rbtnIngenieroS.isSelected() && listse.getSelectedIndex()>=1 && !txtId.getText().isEmpty() && !txtNombre.getText().isEmpty() 
+					&& !txtApellido1.getText().isEmpty() && !txtCorreo.getText().isEmpty() && !txtDireccion.getText().isEmpty()
+					&& lists.getSelectedIndex()>=1 && listi.getSelectedIndex()>=1)
+			{
+				vp.enviarCorreo(txtCorreo.getText());
+				JOptionPane.showMessageDialog(null, "Registrado Exitosamente");
+			} 
+			
+			else {
+					
+				JOptionPane.showMessageDialog(null, "Datos Incompletos");
+			}
 		
 			}
 	
