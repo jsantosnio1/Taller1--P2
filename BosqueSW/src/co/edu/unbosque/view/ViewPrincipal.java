@@ -34,8 +34,8 @@ public class ViewPrincipal extends JFrame implements ActionListener{
 		pr = new VentanaRegistro(this);
 		
 		setTitle("BosqueSW");
-		setLayout(new GridLayout(5,2));
-		setSize(550,550);
+		setLayout(new GridLayout(2,2));
+		setSize(350,250);
 		setResizable(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
@@ -91,19 +91,21 @@ public class ViewPrincipal extends JFrame implements ActionListener{
 	}
 	
 
-//	public void registroPersona(int pId, String pNombre, String pApellido1, String pApellido2, Object pSexo, String pUsuario, String pContraseña, String pCorreo, Date pNacimiento, int pEdad, int pIngresos, String pDivorcio, float pEstatura) {
+	public void registroPersona(int pId, String pNombre, String pApellido1, Object pSexo,String pCorreo, String pDireccion, Object pIngresos) {
 		
-	//	if(pIngresos==0){
-		//	int ingresos=0;
-			//p.escribirArchivoUsuario(pId, pNombre, pApellido1, pApellido2, pSexo, pUsuario, pContraseña, pCorreo, pNacimiento, pEdad, ingresos, pDivorcio, 0, 0, 0, "activo", 0);
-		//}
-	//	else {
-		//	p.escribirArchivoUsuario(pId, pNombre, pApellido1, pApellido2, pSexo, pUsuario, pContraseña, pCorreo, pNacimiento, pEdad, pIngresos, pDivorcio, 0, 0, 0, "activo", pEstatura);
-	//	}
-//	}
+		
+			controlador.escribirEmpleado(pId, pNombre, pApellido1, pSexo, pCorreo, pDireccion, pIngresos);
+		
+	}
 
 	public void enviarCorreo(String pCorreo) {
 	    controlador.enviarCorreo(pCorreo);
     }
+	
+	public void CalcularSalario(int antiguedad) {
+		controlador.calcularSalario(antiguedad);
+	}
+	
+
 
 }

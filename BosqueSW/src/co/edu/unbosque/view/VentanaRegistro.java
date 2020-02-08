@@ -281,6 +281,8 @@ public class VentanaRegistro extends JFrame implements ActionListener {
 					&& lists.getSelectedIndex()>=1 && listi.getSelectedIndex()>=1) {
 				
 				vp.enviarCorreo(txtCorreo.getText());
+			//	vp.CalcularSalario(lists.getSelectedIndex()>=1);
+				vp.registroPersona(Integer.parseInt(txtId.getText()), txtNombre.getText(), txtApellido1.getText(),(lists.getSelectedIndex()>=1), txtCorreo.getText(), txtDireccion.getText(),(lists.getSelectedIndex()>=1));
 				JOptionPane.showMessageDialog(null, "Registrado Exitosamente");
 			}
 			
@@ -289,6 +291,7 @@ public class VentanaRegistro extends JFrame implements ActionListener {
 					&& lists.getSelectedIndex()>=1 && listi.getSelectedIndex()>=1)
 			{
 				vp.enviarCorreo(txtCorreo.getText());
+				vp.registroPersona(Integer.parseInt(txtId.getText()), txtNombre.getText(), txtApellido1.getText(),(lists.getSelectedIndex()>=1), txtCorreo.getText(), txtDireccion.getText(),(lists.getSelectedIndex()>=1));
 				JOptionPane.showMessageDialog(null, "Registrado Exitosamente");
 			}
 			else if (rbtnSalario.isSelected() && rbtnIngenieroS.isSelected() && listse.getSelectedIndex()>=1 && !txtId.getText().isEmpty() && !txtNombre.getText().isEmpty() 
@@ -296,6 +299,7 @@ public class VentanaRegistro extends JFrame implements ActionListener {
 					&& lists.getSelectedIndex()>=1 && listi.getSelectedIndex()>=1)
 			{
 				vp.enviarCorreo(txtCorreo.getText());
+				vp.registroPersona(Integer.parseInt(txtId.getText()), txtNombre.getText(), txtApellido1.getText(),(lists.getSelectedIndex()>=1), txtCorreo.getText(), txtDireccion.getText(),(lists.getSelectedIndex()>=1));
 				JOptionPane.showMessageDialog(null, "Registrado Exitosamente");
 			} 
 			
