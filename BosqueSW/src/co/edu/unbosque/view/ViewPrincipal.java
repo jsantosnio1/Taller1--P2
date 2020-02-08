@@ -50,7 +50,7 @@ public class ViewPrincipal extends JFrame implements ActionListener{
 		panelDatos.setLayout(new GridLayout(2, 1));
 		panelDatos.setBorder(new EmptyBorder(5, 5, 5, 5));
 		panelDatos.setBackground(Color.WHITE);
-		panelPrincipal.add(panelDatos, BorderLayout.EAST);
+		panelPrincipal.add(panelDatos, BorderLayout.CENTER);
 		
 		btnRegistro = new JButton();
 		btnRegistro.setText("Registro");

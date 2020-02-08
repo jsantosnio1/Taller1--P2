@@ -12,10 +12,10 @@ public class BosqueSw {
 	
 	private Personal personal;
 	
-	public void agregar(String nombre, String apellido, Object sexo, int telefono, String correo, int salario, 
+	public void agregar(int id, String nombre, String apellido, Object sexo, int telefono, String correo, int salario, 
     		int anioing ,TipoPersonal tipo)
 	{
-		personal = new Personal(nombre, apellido, sexo,telefono,correo,salario,anioing,tipo);
+		personal = new Personal(id,nombre, apellido, sexo,telefono,correo,salario,anioing,tipo);
 		
 		if(tipo ==TipoPersonal.SalarioFijo)
 			

@@ -8,15 +8,15 @@ public class Personal implements Serializable {
 	 * 
 	 */
 		private static final long serialVersionUID = 1L;
-		private int telefono,anioing,salario;
+		private int id, telefono,anioing,salario;
 	    private String nombre, apellido, correo;
 		private Object sexo;
 		private TipoPersonal tipop;
 
-	    public Personal( String nombre, String apellido, Object sexo, int telefono, String correo, int salario, 
+	    public Personal(int id, String nombre, String apellido, Object sexo, int telefono, String correo, int salario, 
 	    		int anioing,TipoPersonal tipo) {
 	        
-	 
+	    	this.id =id;
 	        this.nombre = nombre;
 	        this.apellido = apellido;
 	        this.sexo = sexo;
