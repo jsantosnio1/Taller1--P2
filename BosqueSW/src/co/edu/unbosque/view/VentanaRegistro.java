@@ -3,34 +3,49 @@ package co.edu.unbosque.view;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-public class PanelRegistro extends JPanel {
+public class VentanaRegistro extends JFrame implements ActionListener {
 	
 	
 	private static final long serialVersionUID = 1L;
 
 	private JLabel lblNombre, lblApellido1, lblSexo, lblCorreo,lblIngresos;
 	private JTextField txtNombre, txtApellido1,txtCorreo,txtIngresos;
-
-	private JPanel panelDatos, panelRadioButton;
 	private JRadioButton rbtnHombre, rbtnMujer;
+	private JPanel panelDatos, panelBotones, panelRadioButton;
 	private JButton btnRegistrar;
 	private ViewPrincipal vp;
 	
-	public PanelRegistro (ViewPrincipal vP) {
+	public VentanaRegistro (ViewPrincipal vP) {
 		// TODO Auto-generated constructor stub
 		vp = vP;
+		
+		setTitle("Ventana Registrar");
+		setBounds(1300, 100, 801, 417);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		setResizable(true);
+		setLocationRelativeTo(null);
 
 		panelDatos = new JPanel();
-		panelDatos.setBackground(Color.BLACK);
+		panelDatos.setLayout(new GridLayout(13,2));
+		panelDatos.setBorder(new EmptyBorder(5, 5, 5, 5));
+		panelDatos.setBackground(Color.WHITE);
+
+		panelBotones = new JPanel();
+		panelBotones.setLayout(new GridLayout(1,2));
+		panelBotones.setBorder(new EmptyBorder(5, 5, 5, 5));
+		panelBotones.setBackground(Color.WHITE);
 
 		lblNombre = new JLabel("Nombre: ");
 		lblNombre.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
@@ -56,22 +71,17 @@ public class PanelRegistro extends JPanel {
 		lblSexo.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
 		lblSexo.setForeground(Color.PINK);
 
-		panelRadioButton = new JPanel();
-		panelRadioButton.setLayout(new GridLayout(1,2));
-		panelRadioButton.setBorder(new EmptyBorder(5, 5, 5, 5));
-		panelRadioButton.setBackground(Color.WHITE);
-
 		rbtnHombre = new JRadioButton("Hombre", false);
 		rbtnHombre.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
 		rbtnHombre.setForeground(Color.BLUE);
 		rbtnHombre.setBackground(Color.WHITE);
-		panelRadioButton.add(rbtnHombre);
+
 
 		rbtnMujer = new JRadioButton("Mujer", false);
 		rbtnMujer.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
 		rbtnMujer.setForeground(Color.PINK);
 		rbtnMujer.setBackground(Color.WHITE);
-		panelRadioButton.add(rbtnMujer);
+
 
 		ButtonGroup grupob = new ButtonGroup();
 		grupob.add(rbtnHombre);
@@ -88,13 +98,18 @@ public class PanelRegistro extends JPanel {
 
 		panelDatos.add(lblNombre);		panelDatos.add(txtNombre);
 		panelDatos.add(lblApellido1);	panelDatos.add(txtApellido1);
-		panelDatos.add(lblSexo);		panelDatos.add(panelRadioButton);
-	
+		panelDatos.add(lblSexo);		
 		panelDatos.add(lblCorreo);		panelDatos.add(txtCorreo);
 
 
 	
 
 
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }
